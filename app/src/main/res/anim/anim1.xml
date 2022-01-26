@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="3000"
+    android:fillAfter="true"
+
+    android:shareInterpolator="true">
+    <!--  android:shareInterpolator= "true" -->
+    <!--    表示集合中动画是否和集合共享同一个插值器-->
+    <!--    interpolator: 插值器  影响动画的速度，比如非匀速动画就需要通过插值器来控制动画的播放过程-->
+    <alpha
+        android:fromAlpha="0.1"
+        android:toAlpha="1" />
+
+    <scale
+        android:fromXScale="0.5dp"
+        android:fromYScale="0.5dp"
+        android:pivotX="1"
+        android:pivotY="0.5"
+        android:toXScale="1dp"
+        android:toYScale="1dp" />
+
+    <translate
+        android:fromXDelta="100"
+        android:toXDelta="0"
+        android:fromYDelta="100"
+        android:toYDelta="0" />
+
+    <rotate
+        android:fromDegrees="0"
+        android:pivotX="0"
+        android:pivotY="0"
+        android:toDegrees="180" />
+
+</set>
