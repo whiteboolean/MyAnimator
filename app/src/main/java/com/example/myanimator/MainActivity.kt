@@ -2,6 +2,8 @@ package com.example.myanimator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -23,10 +25,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val button = findViewById<Button>(R.id.button)
+
+        //View动画
         val animation = AnimationUtils.loadAnimation(
             this, R.anim.anim2
         )
 
+        //View动画 - 透明度动画
         val alphaAnimation = AlphaAnimation(1f, 0f)
             .apply {
                 duration = 3000
@@ -34,11 +39,20 @@ class MainActivity : AppCompatActivity() {
             }
 
 
+        //3D动画
         val myAnimation = Rotate3dAnimation(
             100f, 20f, 10f,
             10f, 20f, true
         ).apply {
             duration = 3000
+        }
+
+        Handler(Looper.myLooper()!!).post{
+            println("Height1:${button.height}")
+        }
+
+        button.post {
+            println("Height2:${button.height}")
         }
 
         button.setOnClickListener {
@@ -59,6 +73,13 @@ class MainActivity : AppCompatActivity() {
 
             }
         )
+
+
+    }
+
+
+    override fun onResume() {
+        super.onResume()
 
 
     }
